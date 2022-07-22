@@ -9,8 +9,9 @@ class MyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10,left: 25),
+      padding: EdgeInsets.only(top: 10,left: 25),
       child: Container(
+
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -32,7 +33,7 @@ class MyButton extends StatelessWidget {
           ),
           // color: Colors.black,
           width: MediaQuery.of(context).size.width/1.2,
-          height: 50,
+          height: 60,
           //+ padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
           child: ElevatedButton(
             child: Text(

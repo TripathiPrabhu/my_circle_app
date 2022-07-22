@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_circle_app/helpers/MyButton.dart';
-
-import '../helpers/painter.dart';
 import 'Onboarding_Mockup_Screen.dart';
 
 class GetStarted extends StatefulWidget {
@@ -18,6 +16,7 @@ class _GetStartedState extends State<GetStarted> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
           bottomSheet: MyBottomSheet(),
           body: Center(
