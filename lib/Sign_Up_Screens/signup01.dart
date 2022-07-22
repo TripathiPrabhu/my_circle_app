@@ -1,19 +1,15 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../helpers/MyButton.dart';
 
-import 'Sign_Up_Screens/signup01.dart';
-import 'forgot_passwor_screens/forgot_password.dart';
-import 'helpers/MyButton.dart';
-
-class SigninScreen extends StatefulWidget {
-  SigninScreen({Key? key}) : super(key: key);
+class Signup01Screen extends StatefulWidget {
+  Signup01Screen({Key? key}) : super(key: key);
 
   @override
-  State<SigninScreen> createState() => _SigninScreenState();
+  State<Signup01Screen> createState() => _Signup01ScreenState();
 }
 
-class _SigninScreenState extends State<SigninScreen> {
+class _Signup01ScreenState extends State<Signup01Screen> {
   bool secureText = true;
   final _name = TextEditingController();
 
@@ -34,12 +30,12 @@ class _SigninScreenState extends State<SigninScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-               ////////Top Icon Back Button Start Here ///////////////
+                ////////Top Icon Back Button Start Here ///////////////
                 Stack(
                   alignment: Alignment.topLeft,
                   children: <Widget>[
                     IconButton(
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.arrow_back,
                         color: Colors.blue,
                         size: 30,
@@ -50,24 +46,24 @@ class _SigninScreenState extends State<SigninScreen> {
                     )
                   ],
                 ),
-                ///Text WelCome Back Start Here ///////////////
+                ///Text WelCome Here Start Here ///////////////
                 Padding(
                   padding: const EdgeInsets.only(top: 100, left: 15),
                   child: Text(
-                    'Welcome back!',
+                    'Welcome here',
                     style: GoogleFonts.kalam(
-                        textStyle: TextStyle(
+                        textStyle: const TextStyle(
                             color: Colors.black54,
                             fontSize: 20,
                             fontWeight: FontWeight.bold)),
                   ),
                 ),
                 ///Text You have been missed Start Here ///////////////
-                Padding(
+                const Padding(
                   padding: EdgeInsets.only(top: 10, left: 15),
-                  child: Text("You've been Missed",
+                  child: Text("Let’s create your account",
                       style: TextStyle(
-                          // color: Colors.black54,
+                        // color: Colors.black54,
                           fontSize: 30,
                           fontWeight: FontWeight.bold)),
                 ),
@@ -78,7 +74,7 @@ class _SigninScreenState extends State<SigninScreen> {
                     keyboardType: TextInputType.emailAddress,
                     controller: _name,
                     //obscureText: secureText,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: 'Enter Your Email',
                       // label: Text('Enter Your Email'),
                     ),
@@ -104,39 +100,26 @@ class _SigninScreenState extends State<SigninScreen> {
                     ),
                   ),
                 ),
-                ///forgot Button  start here ///////////////
-                Padding(padding: EdgeInsets.all(10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    TextButton(onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ForgotPassword()));
-                    }, child: Text('Forgot Password',
-                    style: TextStyle(fontSize: 18),),),
-                  ],
-                ),
-                ),
-                ///SignIn Button  start here ///////////////
+
+                ///Next Button  start here ///////////////
                 Padding(
-                  padding: const EdgeInsets.only(top: 40),
+                  padding: const EdgeInsets.only(top: 150),
                   child: MyButton(
                     onPressed: () {},
-                    ButtonText: 'SIGN IN',
+                    ButtonText: 'NEXT',
                   ),
                 ),
                 ///Join Now Button  start here ///////////////
                 Padding(
-                  padding: const EdgeInsets.only(top: 60,),
+                  padding: const EdgeInsets.only(top: 20,),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                    Text("Don't have an account?",
-                    style: TextStyle(fontSize: 16),),
-                      TextButton(onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Signup01Screen()));
-                      },
+                      Text("Don't have an account?",
+                        style: TextStyle(fontSize: 16),),
+                      TextButton(onPressed: (){},
                           child: Text('Join Now',style: TextStyle(fontSize: 20),))
-                  ],),
+                    ],),
                 ),
               ],
             ),

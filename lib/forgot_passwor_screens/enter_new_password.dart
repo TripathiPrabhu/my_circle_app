@@ -1,19 +1,18 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_circle_app/SignIn_Screen.dart';
+import 'forgot_password.dart';
+import '../helpers/MyButton.dart';
 
-import 'Sign_Up_Screens/signup01.dart';
-import 'forgot_passwor_screens/forgot_password.dart';
-import 'helpers/MyButton.dart';
-
-class SigninScreen extends StatefulWidget {
-  SigninScreen({Key? key}) : super(key: key);
+class EnterNewPassword extends StatefulWidget {
+  EnterNewPassword({Key? key}) : super(key: key);
 
   @override
-  State<SigninScreen> createState() => _SigninScreenState();
+  State<EnterNewPassword> createState() => _EnterNewPasswordState();
 }
 
-class _SigninScreenState extends State<SigninScreen> {
+class _EnterNewPasswordState extends State<EnterNewPassword> {
   bool secureText = true;
   final _name = TextEditingController();
 
@@ -34,7 +33,7 @@ class _SigninScreenState extends State<SigninScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-               ////////Top Icon Back Button Start Here ///////////////
+                ////////Top Icon Back Button Start Here ///////////////
                 Stack(
                   alignment: Alignment.topLeft,
                   children: <Widget>[
@@ -50,36 +49,45 @@ class _SigninScreenState extends State<SigninScreen> {
                     )
                   ],
                 ),
-                ///Text WelCome Back Start Here ///////////////
+                ///Text New Password Start Here ///////////////
                 Padding(
                   padding: const EdgeInsets.only(top: 100, left: 15),
                   child: Text(
-                    'Welcome back!',
-                    style: GoogleFonts.kalam(
-                        textStyle: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 20,
+                    'New Password!',
+                    style:  TextStyle(
+                        fontSize: 35,
+                            color: Colors.blue,
                             fontWeight: FontWeight.bold)),
                   ),
-                ),
-                ///Text You have been missed Start Here ///////////////
+
+                ///Text Enter your new password Start Here ///////////////
                 Padding(
                   padding: EdgeInsets.only(top: 10, left: 15),
-                  child: Text("You've been Missed",
+                  child: Text("Enter Your New Password",
                       style: TextStyle(
-                          // color: Colors.black54,
-                          fontSize: 30,
+                        color: Colors.black54,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold)),
                 ),
                 ///Text Form field start here ///////////////
                 Padding(
-                  padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
+                  padding: const EdgeInsets.only(top: 80, left: 20, right: 20),
                   child: TextFormField(
                     keyboardType: TextInputType.emailAddress,
                     controller: _name,
                     //obscureText: secureText,
                     decoration: InputDecoration(
-                      hintText: 'Enter Your Email',
+                      hintText: 'Enter Your Password',
+                      suffixIcon: IconButton(
+                        icon: secureText
+                            ? Icon(Icons.remove_red_eye)
+                            : Icon(Icons.shield_moon_outlined),
+                        onPressed: () {
+                          setState(() {
+                            secureText = !secureText;
+                          });
+                        },
+                      ),
                       // label: Text('Enter Your Email'),
                     ),
                   ),
@@ -89,7 +97,7 @@ class _SigninScreenState extends State<SigninScreen> {
                   child: TextFormField(
                     obscureText: secureText,
                     decoration: InputDecoration(
-                      hintText: 'Enter Your Password',
+                      hintText: 'Re-enter Your Password',
                       // label: Text('Enter Your Password'),
                       suffixIcon: IconButton(
                         icon: secureText
@@ -104,40 +112,18 @@ class _SigninScreenState extends State<SigninScreen> {
                     ),
                   ),
                 ),
-                ///forgot Button  start here ///////////////
-                Padding(padding: EdgeInsets.all(10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    TextButton(onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ForgotPassword()));
-                    }, child: Text('Forgot Password',
-                    style: TextStyle(fontSize: 18),),),
-                  ],
-                ),
-                ),
-                ///SignIn Button  start here ///////////////
+
+                ///Update Password Button  start here ///////////////
                 Padding(
-                  padding: const EdgeInsets.only(top: 40),
+                  padding: const EdgeInsets.only(top: 200),
                   child: MyButton(
-                    onPressed: () {},
-                    ButtonText: 'SIGN IN',
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SigninScreen()));
+                    },
+                    ButtonText: 'Update Password',
                   ),
                 ),
                 ///Join Now Button  start here ///////////////
-                Padding(
-                  padding: const EdgeInsets.only(top: 60,),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                    Text("Don't have an account?",
-                    style: TextStyle(fontSize: 16),),
-                      TextButton(onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Signup01Screen()));
-                      },
-                          child: Text('Join Now',style: TextStyle(fontSize: 20),))
-                  ],),
-                ),
               ],
             ),
           ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'Onboarding_Screens/GetStarted_Screen.dart';
 import 'Onboarding_Screens/Onboarding_Mockup_Screen.dart';
 import 'Onboarding_Screens/Splash_Screen.dart';
-import 'forgot_password.dart';
+import 'forgot_passwor_screens/forgot_password.dart';
 
 void main() {
   runApp( MyApp());
